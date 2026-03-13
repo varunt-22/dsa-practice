@@ -1,0 +1,27 @@
+// Problem: Rotate Array
+// Pattern: Array Rotation (Temp Array / Shifting - Brute Force)
+// Time Complexity: O(n)  Space Complexity: O(k)
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int temp[k];
+        int n=nums.size();
+        k=k%n;
+        for(int i=0;i<k;i++)
+        {
+            temp[i]=nums[n-k+i];
+        }
+
+        for(int i=n-k-1;i>=0;i--)
+        {
+            nums[i+k]=nums[i];
+        }
+        for(int i=0;i<k;i++)
+        {
+            nums[i]=temp[i];
+        }
+    }
+};
